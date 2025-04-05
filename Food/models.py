@@ -8,7 +8,7 @@ class Food_Items(models.Model):
     price = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.food_type + " " + self.food_name
     
     class Meta:
         verbose_name = "Food_Item"

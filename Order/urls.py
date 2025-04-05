@@ -1,7 +1,6 @@
 from django.urls import path
-# from .views import (LoginView, LogoutView, UserRegistrationView)
-from .views import temp_view
+# from .views import (getNextOrderItem)
 
 urlpatterns = [
-    path('temp/', temp_view, name='temp'),
+    # path('food_items/', getNextOrderItem.as_view(), name='get_food_items'),
 ]
