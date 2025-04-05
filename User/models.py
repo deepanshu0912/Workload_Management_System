@@ -9,9 +9,18 @@ class UserCredentials(models.Model):
         verbose_name_plural = "UserCredentials"
 
     def __str__(self):
-        return self.mobile
+        return self.userid
     
 class User(models.Model):
-    user = models.ForeignKey(UserCredentials)
+    user_type_choices = [('Customer', 'Customer'),
+                    ('Chef', 'Chef')]
+        
+    id = models.AutoField(primary_key=True)
+    user_credentials = models.ForeignKey(UserCredentials, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    usertype = models.CharField()
+    mobile = models.CharField(max_length=255, unique=True)
+    user_type = models.CharField(max_length=255, choices=user_type_choices)
+    address = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.mobile
